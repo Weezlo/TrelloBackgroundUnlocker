@@ -6,13 +6,10 @@
     style.innerHTML = '.custom-list-wrapper-width{width: 350px}';
     document.getElementsByTagName('head')[0].appendChild(style);
     $('.list-wrapper').addClass('custom-list-wrapper-width');
-    //$('body').addClass('body-board-view body-custom-board-background body-custom-board-background-tiled body-dark-board-background');
     var bodyEl = document.getElementsByTagName('body')[0];
-    //bodyEl.style.backgroundImage = 'url("https://d78fikflryjgj.cloudfront.net/images/backgrounds/c9f15836db29df79c2a0092a6758d81e/subtle-irongrip.png")';
     var obs = new MutationObserver(function(mutations, observer){
 
         function saveBackgroundDelayed(){
-            //console.log('clicked !!!');
             setTimeout(function(){
                 var obj = {};
                 obj.classes = bodyEl.className;
@@ -28,7 +25,6 @@
             $('.board-background-select').on('click', saveBackgroundDelayed);
         }
     });
-    // have the observer observe foo for changes in children
     obs.observe( document.getElementsByClassName('board-menu-content')[0], { childList:true, subtree:true });
 
     var prefs = restoreObjectFromLocalStorage('trelloTheme');
